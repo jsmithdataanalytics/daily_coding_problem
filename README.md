@@ -131,3 +131,13 @@ For example, [2, 4, 6, 8] should return 12, since we pick 4 and 8. [5, 1, 1, 5] 
 [Solution](problem_9/main.py)
 
 ---
+
+#### Problem 10
+
+This problem was asked by Apple.
+
+Implement a job scheduler which takes in a function f and an integer n, and calls f after n milliseconds.
+
+[Solution](problem_10/main.py)
+
+---
