@@ -11,7 +11,7 @@ For example, given [10, 15, 3, 7] and k of 17, return true since 10 + 7 is 17.
 
 Bonus: Can you do this in one pass?
 
-[Solution](problem_1/main.py)
+[Solution](solutions/problem_001/main.py)
 
 ---
 
@@ -25,7 +25,7 @@ For example, if our input was [1, 2, 3, 4, 5], the expected output would be [120
 
 Follow-up: what if you can't use division?
 
-[Solution](problem_2/main.py)
+[Solution](solutions/problem_002/main.py)
 
 ---
 
@@ -35,7 +35,7 @@ This problem was asked by Google.
 
 Given the root to a binary tree, implement serialize(root), which serializes the tree into a string, and deserialize(s), which deserializes the string back into the tree.
 
-[Solution](problem_3/main.py)
+[Solution](solutions/problem_003/main.py)
 
 ---
 
@@ -49,7 +49,7 @@ For example, the input [3, 4, -1, 1] should give 2. The input [1, 2, 0] should g
 
 You can modify the input array in-place.
 
-[Solution](problem_4/main.py)
+[Solution](solutions/problem_004/main.py)
 
 ---
 
@@ -66,7 +66,7 @@ def cons(a, b):
 ```
 Implement car and cdr.
 
-[Solution](problem_5/main.py)
+[Solution](solutions/problem_005/main.py)
 
 ---
 
@@ -78,7 +78,7 @@ An XOR linked list is a more memory efficient doubly linked list. Instead of eac
 
 If using a language that has no pointers (such as Python), you can assume you have access to get_pointer and dereference_pointer functions that converts between nodes and memory addresses.
 
-[Solution](problem_6/main.py)
+[Solution](solutions/problem_006/main.py)
 
 ---
 
@@ -92,7 +92,7 @@ For example, the message '111' would give 3, since it could be decoded as 'aaa',
 
 You can assume that the messages are decodable. For example, '001' is not allowed.
 
-[Solution](problem_7/main.py)
+[Solution](solutions/problem_007/main.py)
 
 ---
 
@@ -116,7 +116,7 @@ For example, the following tree has 5 unival subtrees:
  1   1
 ```
 
-[Solution](problem_8/main.py)
+[Solution](solutions/problem_008/main.py)
 
 ---
 
@@ -128,7 +128,7 @@ Given a list of integers, write a function that returns the largest sum of non-a
 
 For example, [2, 4, 6, 8] should return 12, since we pick 4 and 8. [5, 1, 1, 5] should return 10, since we pick 5 and 5.
 
-[Solution](problem_9/main.py)
+[Solution](solutions/problem_009/main.py)
 
 ---
 
@@ -138,6 +138,6 @@ This problem was asked by Apple.
 
 Implement a job scheduler which takes in a function f and an integer n, and calls f after n milliseconds.
 
-[Solution](problem_10/main.py)
+[Solution](solutions/problem_010/main.py)
 
 ---
