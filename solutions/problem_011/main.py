@@ -2,43 +2,56 @@
 letters = [
     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
     'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
-    's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ' '
+    's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '@'
 ]
 
-vocab = ['a', 'i', 'deer', 'deal', 'dog', 'daily', 'coding', 'problem']
+vocab = ['a', 'i', 'deer', 'deal', 'dog', 'dogs', 'daily', 'coding', 'problem']
 
 
-def initialise_tree(layers):
-    tree = dict.fromkeys(letters)
-    layers -= 1
+def add_word_to_tree(word, tree):
+
+    if word:
+        subtree = tree.setdefault(word[0], {})
+        add_word_to_tree(word[1:], subtree)
+
+
+def get_words_from_tree(tree):
+
+    if not tree:
+        return ['']
+
+    words = []
 
     for letter in tree:
-        tree[letter] = initialise_tree(layers) if layers else []
+        subtree_words = get_words_from_tree(tree[letter])
+        words.extend([letter + word for word in subtree_words])
 
-    return tree
-
-
-index = initialise_tree(layers=2)
-
-for i, word in enumerate(vocab):
-    word = word.strip().ljust(2)
-    index[word[0]][word[1]].append(i)
+    return words
 
 
-def query(string):
-    string = string.strip()
+index = {}
 
-    if len(string) == 1:
-        entries = [entry for entries in index[string[0]].values() for entry in entries]
+for entry in vocab:
+    add_word_to_tree(entry.lower().strip() + '@', index)
 
-    else:
-        entries = [entry for entry in index[string[0]][string[1]] if vocab[entry][:len(string)] == string]
 
-    return [vocab[entry] for entry in entries]
+def query(prefix):
+    subtree, query_string = index, prefix
+
+    while prefix:
+
+        if prefix[0] in subtree:
+            subtree = subtree[prefix[0]]
+            prefix = prefix[1:]
+
+        else:
+            return set()
+
+    return {query_string + word[:-1] for word in get_words_from_tree(subtree)}
 
 
 if __name__ == '__main__':
-    assert query('de') == ['deer', 'deal']
-    assert query('d') == ['daily', 'deer', 'deal', 'dog']
-    assert query('a') == ['a']
-    assert query('codi') == ['coding']
+    assert query('de') == {'deer', 'deal'}
+    assert query('d') == {'daily', 'deer', 'deal', 'dog', 'dogs'}
+    assert query('a') == {'a'}
+    assert query('codi') == {'coding'}
