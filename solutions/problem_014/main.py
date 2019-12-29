@@ -1,16 +1,17 @@
+from random import uniform
 
-INTERVALS = 1000
+ITERATIONS = 100000000
 
-pi = 0
+hits = 0
 
-for i in range(-INTERVALS, INTERVALS):
-    (x_min, x_max) = (i / INTERVALS, (i + 1) / INTERVALS)
+for _ in range(ITERATIONS):
+    random_point = (uniform(-1, 1), uniform(-1, 1))
 
-    for j in range(-INTERVALS, INTERVALS):
-        (y_min, y_max) = (j / INTERVALS, (j + 1) / INTERVALS)
-        (centre_x, centre_y) = ((x_min + x_max) / 2, (y_min + y_max) / 2)
+    if random_point[0] ** 2 + random_point[1] ** 2 < 1:
+        hits += 1
 
-        if centre_x ** 2 + centre_y ** 2 < 1:
-            pi += INTERVALS ** (-2)
+pi = hits / ITERATIONS * 4
 
-assert round(pi, 3) == 3.142
+
+if __name__ == '__main__':
+    assert round(pi, 3) == 3.142
