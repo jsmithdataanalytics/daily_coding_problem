@@ -5,16 +5,14 @@ class Queue(dict):
         super().__init__(self)
         self.max_length = max_length
         self.first = 0
-        self.last = 0
+        self.last = -1
 
     def record(self, order_id):
+        self.last += 1
 
-        if self:
-            self.last += 1
-
-            if len(self) == self.max_length:
-                del self[self.first]
-                self.first += 1
+        if len(self) == self.max_length:
+            del self[self.first]
+            self.first += 1
 
         self[self.last] = order_id
 
