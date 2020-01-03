@@ -261,6 +261,6 @@ We are interested in finding the longest (number of characters) absolute path to
 
 Given a string representing the file system in the above format, return the length of the longest absolute path to a file in the abstracted file system. If there is no file in the system, return 0.
 
-[Solution](solutions/problem_018/main.py)
+[Solution](solutions/problem_017/main.py)
 
 ---
