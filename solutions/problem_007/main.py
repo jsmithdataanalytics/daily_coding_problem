@@ -33,3 +33,4 @@ def count(string):
 
 if __name__ == '__main__':
     assert count('111') == 3
+    assert count('1234') == 3
