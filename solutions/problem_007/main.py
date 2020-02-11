@@ -4,11 +4,13 @@ letters = [
     'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
 ]
 
+cache = {'': ['']}
+
 
 def decode(string):
 
-    if not string:
-        return ['']
+    if string in cache:
+        return cache[string]
 
     solutions = []
 
@@ -19,6 +21,8 @@ def decode(string):
 
             for solution in decode(string[len(number):]):
                 solutions.append(letter + solution)
+
+    cache[string] = solutions
 
     return solutions
 
